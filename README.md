@@ -24,6 +24,8 @@ At a glance:
 import { getPolicy, setPolicy, registerModule } from "privacy-police";
 
 registerModule({
+  policy: "default",
+
   install() {
     console.log("Consent has been granted!");
   }
@@ -44,11 +46,11 @@ if (undefined === getPolicy("default")) {
 
 On the user's first visit to the website the `default` policy will be undefined, so a prompt will be shown asking the user for consent.
 
-If the user clicks `Yes` consent will be given and any modules complying with the `default` policy will get installed--and the `install()` hook will run.
+If the user clicks `Yes` consent will be given and any modules complying with the `default` policy will get installed--`install()` hook gets called.
 
 If the user clicks `No` consent will be denied and any modules complying with the `default` policy will be skipped.
 
-Subsequent visits by the user will **not** trigger the prompt since consent is remembered (stored in local storage).
+Subsequent visits by the user will **not** trigger the prompt since consent is remembered across visits (stored in local storage).
 
 If at any time the `default` policy gets changed, any modules complying with it will be either installed or removed depending on whether the new policy is set to `"allow"` or `"deny"` respectively.
 
