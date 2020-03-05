@@ -2,7 +2,7 @@
 
 > ...
 
-**Privacy Police** is a lightweight engine for managing and complying with your website's users consent policy.
+**Privacy Police** is a lightweight engine for managing and complying with your website users' consent policy.
 
 ## About
 
