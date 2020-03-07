@@ -3,7 +3,12 @@ import { Entry } from "./entry";
 import { Consent } from "./consent";
 import { Callback } from "./subject";
 
-const singleton = new Consentman();
+export { Consentman } from "./consentman";
+
+/**
+ * Default instance of Consentman for convenience.
+ */
+const instance = new Consentman();
 
 /**
  * Push new subject to the registry.
@@ -12,7 +17,7 @@ const singleton = new Consentman();
  * @param {Callback} callback
  */
 export function addConsentSubject(name: string, callback: Callback): void {
-  singleton.addConsentSubject(name, callback);
+  instance.addConsentSubject(name, callback);
 }
 
 /**
@@ -23,7 +28,7 @@ export function addConsentSubject(name: string, callback: Callback): void {
  * @memberof Consentman
  */
 export function getConsent(name: string): Entry {
-  return singleton.getConsent(name);
+  return instance.getConsent(name);
 }
 
 /**
@@ -33,14 +38,14 @@ export function getConsent(name: string): Entry {
  * @param {Consent} consent
  */
 export function changeConsent(name: string, answer: Consent): void {
-  singleton.changeConsent(name, answer);
+  instance.changeConsent(name, answer);
 }
 
 /**
  * Walk over registered subjects and enforce consent rules.
  */
 export function enforceConsent(): void {
-  singleton.enforceConsent();
+  instance.enforceConsent();
 }
 
-export default singleton;
+export default instance;
