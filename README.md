@@ -61,7 +61,41 @@ You can also have additional policies to use in different modules, e.g. one for 
 
 ## API
 
-🚧️ ...
+<details>
+  <summary>
+    <code>addConsentSubject(name: string, callback: Callback): void</code>
+  </summary>
+  <p>Push new consent subject to the registry. A consent subject is a state machine that updates whenever <code>enforceConsent</code> is called. The next state depends on whether a consent of same name has been granted or revoked. Possible states are <code>"idle"</code>, <code>"allowed"</code> or <code>"blocked"</code> or <code>"skipped"</code>.</p>
+</details>
+
+<details>
+  <summary>
+    <code>getConsent(name: string): Entry</code>
+  </summary>
+  <p>Return current consent entry with a given <code>name</code>. A consent entry has the following interface:</p>
+  <dl>
+    <dt>name</dt>
+    <dd>A string identifier.</dd>
+    <dt>date</dt>
+    <dd>Timestamp for when consent was last changed.</dd>
+    <dt>consent</dt>
+    <dd>The current consent policy. Either <code>"indeterminate"</code>, <code>"granted"</code> or <code>"revoked"</code>.</dd>
+  </dl>
+</details>
+
+<details>
+  <summary>
+    <code>changeConsent(name: string, answer: Consent): void</code>
+  </summary>
+  <p>Update existing consent entry or create new one and save to storage.</p>
+</details>
+
+<details>
+  <summary>
+    <code>enforceConsent(): void</code>
+  </summary>
+  <p>Walk over registered consent subjects and update their states.</p>
+</details>
 
 ## License
 
