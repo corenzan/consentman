@@ -45,7 +45,7 @@ export declare class Consentman {
      */
     changeConsent(name: string, consent: Consent): void;
     /**
-     * Walk over registered modules and execute active policies.
+     * Walk over registered subjects and enforce consent rules.
      *
      * @memberof Consentman
      */
@@ -53,7 +53,8 @@ export declare class Consentman {
     /**
      * Push new module to the registry.
      *
-     * @param {*} { policy, ...callbacks }
+     * @param {string} name
+     * @param {Callback} callback
      * @memberof Consentman
      */
     addConsentSubject(name: string, callback: Callback): void;
