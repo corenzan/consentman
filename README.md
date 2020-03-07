@@ -28,7 +28,7 @@ addConsentSubject("default", state => {
       console.log("Consent has been revoked.");
       break;
 
-    case "skipped":
+    default:
       console.log("User need to consent first.");
       break;
   }
