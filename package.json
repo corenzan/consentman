@@ -1,7 +1,7 @@
 {
-  "name": "privacy-police",
+  "name": "consentman",
   "version": "1.0.0",
-  "description": "...",
+  "description": "A lightweight manager for complying with your website users' consent.",
   "main": "lib/index.js",
   "files": [
     "lib/*"
@@ -12,7 +12,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/corenzan/privacy-police.git"
+    "url": "git+https://github.com/corenzan/consentman.git"
   },
   "keywords": [
     "privacy",
@@ -21,9 +21,9 @@
   "author": "Arthur <arthur@corenzan.com>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/corenzan/privacy-police/issues"
+    "url": "https://github.com/corenzan/consentman/issues"
   },
-  "homepage": "https://github.com/corenzan/privacy-police#readme",
+  "homepage": "https://github.com/corenzan/consentman#readme",
   "devDependencies": {
     "@types/jest": "^25.1.3",
     "jest": "^25.1.0",

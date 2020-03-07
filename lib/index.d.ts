@@ -1,3 +1,10 @@
-import { Police } from "./police";
-declare const _default: Police;
-export default _default;
+import { Consentman } from "./consentman";
+import { Entry } from "./entry";
+import { Consent } from "./consent";
+import { Callback } from "./subject";
+declare const singleton: Consentman;
+export declare function addConsentSubject(name: string, callback: Callback): void;
+export declare function getConsent(name: string): Entry;
+export declare function changeConsent(name: string, answer: Consent): void;
+export declare function enforceConsent(): void;
+export default singleton;
