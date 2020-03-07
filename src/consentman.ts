@@ -101,7 +101,6 @@ export class Consentman {
     }
 
     storeEntries(this.entries);
-    this.enforceConsent();
   }
 
   /**
