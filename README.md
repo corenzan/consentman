@@ -1,3 +1,8 @@
+![GitHub Workflow Status](https://img.shields.io/github/workflow/status/corenzan/consentman/Default)
+![npm](https://img.shields.io/npm/dm/corenzan/consentman)
+
+---
+
 # Consentman
 
 > A lightweight manager for complying with your website users' consent.
