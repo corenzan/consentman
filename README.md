@@ -26,11 +26,11 @@ import {
 addConsentSubject("default", state => {
   switch (state) {
     case "allowed":
-      console.log("Consent has been granted. Installing trackers...");
+      console.log("Consent has been granted. Installing trackers.");
       break;
 
     case "blocked":
-      console.log("Consent has been revoked. Removing trackers...");
+      console.log("Consent has been revoked. Removing trackers.");
       break;
 
     default:
@@ -43,9 +43,9 @@ enforceConsent();
 
 if ("indeterminate" === getConsent("default").consent) {
   if (confirm("Would you like to consent?")) {
-    changeConsent("default", "allow");
+    changeConsent("default", "granted");
   } else {
-    changeConsent("default", "deny");
+    changeConsent("default", "revoked");
   }
 
   enforceConsent();
