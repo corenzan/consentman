@@ -15,6 +15,11 @@ jobs:
           node-version: 12
       - run: npm ci
       - run: npm test
+      - run: npm run build
+      - uses: actions/upload-artifact@v1
+        with:
+          name: dist
+          path: dist
 
   publish-npm:
     needs: build
@@ -22,11 +27,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+      - uses: actions/download-artifact@v1
+        with:
+          name: dist
       - uses: actions/setup-node@v1
         with:
           node-version: 12
           registry-url: https://registry.npmjs.org/
-      - run: npm ci
       - run: npm publish
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
@@ -37,12 +44,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+      - uses: actions/download-artifact@v1
+        with:
+          name: dist
       - uses: actions/setup-node@v1
         with:
           node-version: 12
           registry-url: https://npm.pkg.github.com/
-          scope: "@corenzan"
-      - run: npm ci
+          scope: "@haggen"
       - run: npm publish
         env:
           NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
