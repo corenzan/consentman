@@ -1,5 +1,5 @@
 ![GitHub Workflow Status](https://img.shields.io/github/workflow/status/corenzan/consentman/Default)
-![npm](https://img.shields.io/npm/dm/corenzan/consentman)
+![npm](https://img.shields.io/npm/dm/consentman)
 
 ---
 
