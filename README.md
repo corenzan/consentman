@@ -39,17 +39,15 @@ addConsentSubject("default", state => {
   }
 });
 
-enforceConsent();
-
 if ("indeterminate" === getConsent("default").consent) {
   if (confirm("Would you like to consent?")) {
     changeConsent("default", "granted");
   } else {
     changeConsent("default", "revoked");
   }
-
-  enforceConsent();
 }
+
+enforceConsent();
 ```
 
 On the user's first visit to the website the consent named `default` will be `indeterminate`, so a confirmation will be shown asking the user for consent.
