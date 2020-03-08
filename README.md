@@ -21,15 +21,15 @@ import {
 addConsentSubject("default", state => {
   switch (state) {
     case "allowed":
-      console.log("Consent has been granted!");
+      console.log("Consent has been granted. Installing trackers...");
       break;
 
     case "blocked":
-      console.log("Consent has been revoked.");
+      console.log("Consent has been revoked. Removing trackers...");
       break;
 
     default:
-      console.log("User need to consent first.");
+      console.log("User needs to consent first.");
       break;
   }
 });
@@ -47,25 +47,25 @@ if ("indeterminate" === getConsent("default").consent) {
 }
 ```
 
-On the user's first visit to the website the `default` consent will be `"indeterminate"`, so a confirmation will be shown asking the user for consent.
+On the user's first visit to the website the consent named `default` will be `indeterminate`, so a confirmation will be shown asking the user for consent.
 
-If the user clicks `Yes` consent will be given and any modules complying with the `default` consent will get installed.
+If the user clicks `Yes` consent will be granted and any subjects will get allowed.
 
-If the user clicks `No` consent will be denied and any modules complying with the `default` consent will be skipped.
+If the user clicks `No` consent will be revoked and any subjects will be skipped.
 
-Subsequent visits by the user will **not** trigger the confirmation since consent is remembered across visits (stored in local storage).
+Subsequent visits by the user will **not** trigger the confirmation since consent is remembered across visits--stored in local storage.
 
-If at any time the `default` consent is changed, any modules complying with it will be either installed or removed depending on whether the new consent was set _granted_ or _revoked_ respectively.
+If at any time `default` consent is revoked and re-enforced, any subjects will be blocked.
 
-You can also have additional policies to use in different modules, e.g. one for trackers, one for advertising, etc.
+You can also have additional consents with different names, e.g. one for trackers, one for advertising, etc.
 
 ## API
 
 <details>
   <summary>
-    <code>addConsentSubject(name: string, callback: Callback): void</code>
+    <code>addConsentSubject(name: string, callback: (state: "idle" | "allowed" | "blocked" | "skipped") => void): void</code>
   </summary>
-  <p>Push new consent subject to the registry. A consent subject is a state machine that updates whenever <code>enforceConsent</code> is called. The next state depends on whether a consent of same name has been granted or revoked. Possible states are <code>"idle"</code>, <code>"allowed"</code> or <code>"blocked"</code> or <code>"skipped"</code>.</p>
+  <p>Push new consent subject to the registry. A consent subject is a state machine that updates whenever <code>enforceConsent</code> is called. The next state depends on whether a consent of same name has been granted or revoked. Possible states are <code>"idle"</code>, <code>"allowed"</code>, <code>"blocked"</code> or <code>"skipped"</code>.</p>
 </details>
 
 <details>
@@ -85,7 +85,7 @@ You can also have additional policies to use in different modules, e.g. one for 
 
 <details>
   <summary>
-    <code>changeConsent(name: string, answer: Consent): void</code>
+    <code>changeConsent(name: string, consent: "indeterminate" | "granted" | "revoked"): void</code>
   </summary>
   <p>Update existing consent entry or create new one and save to storage.</p>
 </details>
