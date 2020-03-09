@@ -1,6 +1,6 @@
 {
   "name": "consentman",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "A lightweight manager for complying with your website users' consent.",
   "main": "dist/index.js",
   "files": [
