@@ -11,6 +11,12 @@
 
 Differently from other similar projects it will **not** provide any user interface or automatically meddle third-party libraries.
 
+## Install
+
+```shell
+$ npm i --save consentman
+```
+
 ## Usage
 
 At a glance:
