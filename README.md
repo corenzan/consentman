@@ -5,11 +5,11 @@
 
 # Consentman
 
-> A lightweight manager for complying with your website users' consent.
+> A lightweight manager for complying with user consent.
 
 **Consentman** provides an API for setting, changing and storing user consent and handling the event of consent being given or revoked.
 
-Differently from other similar projects it will **not** provide any user interface or automatically meddle third-party libraries.
+Differently from other similar projects it will **not** provide any user interface or automation. It's your job as a developer to actually start and stop tracking the user, for instance, if consent is granted or revoked, respectively.
 
 ## Install
 
@@ -74,7 +74,7 @@ You can also have additional consents with different names, e.g. one for tracker
   <summary>
     <code>addConsentSubject(name: string, callback: (state: "idle" | "allowed" | "blocked" | "skipped") => void): void</code>
   </summary>
-  <p>Push new consent subject to the registry. A consent subject is a state machine that updates whenever <code>enforceConsent</code> is called. The next state depends on whether a consent of same name has been granted or revoked. Possible states are <code>"idle"</code>, <code>"allowed"</code>, <code>"blocked"</code> or <code>"skipped"</code>.</p>
+  <p>Push new consent subject to the registry. A consent subject is a state machine that updates whenever <code>enforceConsent</code> is called. The next state depends on whether a consent of same name has been granted or revoked.</p>
 </details>
 
 <details>
@@ -83,12 +83,12 @@ You can also have additional consents with different names, e.g. one for tracker
   </summary>
   <p>Return current consent entry with a given <code>name</code>. A consent entry has the following interface:</p>
   <dl>
-    <dt>name</dt>
+    <dt><code>name: string</code></dt>
     <dd>A string identifier.</dd>
-    <dt>date</dt>
+    <dt><code>date: number</code></dt>
     <dd>Timestamp for when consent was last changed.</dd>
-    <dt>consent</dt>
-    <dd>The current consent policy. Either <code>"indeterminate"</code>, <code>"granted"</code> or <code>"revoked"</code>.</dd>
+    <dt><code>consent: "indeterminate" | "granted" | "revoked"</code></dt>
+    <dd>The current policy.</dd>
   </dl>
 </details>
 
