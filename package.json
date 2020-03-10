@@ -1,6 +1,6 @@
 {
   "name": "consentman",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "A lightweight manager for complying with user consent.",
   "files": [
     "dist/*"
